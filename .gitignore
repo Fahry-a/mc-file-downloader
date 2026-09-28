@@ -1,0 +1,17 @@
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build
+
+# Ignore Kotlin plugin data
+.kotlin
+# Node / semantic-release
+node_modules/
+package-lock.json
+npm-debug.log*
+
+# semantic-release generated version marker (dibuat saat release, di-commit oleh bot)
+# VERSION.txt tetap di-track agar build tahu versi terakhir, jadi JANGAN ignore.
+# Local bin output
+bin/

@@ -1,0 +1,21 @@
+# FileDownloader config
+# Folder penyimpanan relatif terhadap plugins/FileDownloader/
+download-folder: "downloads"
+
+# Batas ukuran file (MB). 0 = tanpa batas (tidak disarankan).
+max-file-size-mb: 100
+
+# Timeout koneksi & baca (detik)
+timeout-seconds: 30
+
+# User-Agent saat download
+user-agent: "FileDownloader/1.0 (PaperMC)"
+
+# Timpa file kalau nama sudah ada? false = tolak, true = timpa
+overwrite-existing: false
+
+# Blokir download ke IP private/localhost (anti-SSRF). Disarankan true.
+block-private-addresses: true
+
+# Kirim progress tiap N persen (minimal 5)
+progress-step-percent: 10

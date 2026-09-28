@@ -1,0 +1,23 @@
+name: FileDownloader
+version: '1.0.0'
+main: net.foenui.mc.fileDownloader.FileDownloaderPlugin
+api-version: '1.13'
+author: foenui
+description: Download file dari URL melalui command.
+website: https://github.com/foenui
+
+commands:
+  download:
+    description: Download file dari URL
+    usage: /download <url> [nama-file]
+    permission: filedownloader.use
+    permission-message: Kamu tidak punya izin.
+    aliases: [dl, fdownload, fd]
+
+permissions:
+  filedownloader.use:
+    description: Boleh download file
+    default: op
+  filedownloader.admin:
+    description: Boleh hapus file hasil download
+    default: op
