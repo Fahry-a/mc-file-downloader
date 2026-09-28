@@ -3,12 +3,12 @@ version: '1.0.0'
 main: net.foenui.mc.fileDownloader.FileDownloaderPlugin
 api-version: '1.13'
 author: foenui
-description: Download file dari URL melalui command.
+description: Download file via command (HTTP/HTTPS/FTP/FTPS/SFTP).
 website: https://github.com/foenui
 
 commands:
   download:
-    description: Download file dari URL
+    description: Download file dari URL (http/https/ftp/ftps/sftp)
     usage: /download <url> [nama-file]
     permission: filedownloader.use
     permission-message: Kamu tidak punya izin.

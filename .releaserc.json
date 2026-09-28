@@ -10,7 +10,7 @@
     [
       "@semantic-release/exec",
       {
-        "prepareCmd": "echo \"${nextRelease.version}\" > VERSION.txt && ./gradlew jar -PreleaseVersion=${nextRelease.version} --no-daemon -x test"
+        "prepareCmd": "echo \"${nextRelease.version}\" > VERSION.txt && ./gradlew shadowJar -PreleaseVersion=${nextRelease.version} --no-daemon -x test"
       }
     ],
     [
@@ -25,8 +25,8 @@
       {
         "assets": [
           {
-            "path": "build/libs/*.jar",
-            "label": "FileDownloader plugin jar"
+            "path": "build/libs/*-all.jar",
+            "label": "FileDownloader plugin jar (fat-jar, termasuk lib FTP/SFTP)"
           }
         ]
       }

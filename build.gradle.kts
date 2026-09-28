@@ -1,5 +1,6 @@
 plugins {
     java
+    id("com.gradleup.shadow") version "9.6.1"
 }
 
 group = "net.foenui.mc"
@@ -19,6 +20,9 @@ repositories {
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:26.2.build.+")
+    // FTP/FTPS client + SFTP client (di-shade ke dalam jar via shadowJar)
+    implementation("commons-net:commons-net:3.13.0")
+    implementation("com.github.mwiede:jsch:2.28.7")
 }
 
 java {
@@ -36,4 +40,20 @@ tasks.processResources {
 
 tasks.jar {
     archiveBaseName.set("FileDownloader")
+}
+
+// Fat-jar berisi commons-net + jsch agar bisa jalan tanpa install lib di server.
+// Hasil: build/libs/FileDownloader-<version>-all.jar (ini yang di-upload ke GitHub Release)
+tasks.shadowJar {
+    archiveBaseName.set("FileDownloader")
+    archiveClassifier.set("all")
+    relocate("org.apache.commons.net", "net.foenui.mc.fileDownloader.libs.commonsnet")
+    relocate("org.apache.commons.io", "net.foenui.mc.fileDownloader.libs.commonsio")
+    relocate("com.jcraft.jsch", "net.foenui.mc.fileDownloader.libs.jsch")
+    mergeServiceFiles()
+}
+
+// Tiap ./gradlew build juga menghasilkan fat-jar
+tasks.build {
+    dependsOn(tasks.shadowJar)
 }

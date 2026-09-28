@@ -78,7 +78,8 @@ public final class DownloadCommand implements CommandExecutor, TabCompleter {
 
     private void sendHelp(CommandSender sender, String label) {
         plugin.log(sender, "§b§lFileDownloader Help:");
-        sender.sendMessage("§e/" + label + " <url> [nama-file] §7- download file dari URL");
+        sender.sendMessage("§e/" + label + " <url> [nama-file] §7- download (http/https/ftp/ftps/sftp)");
+        sender.sendMessage("§7  contoh: §bftp://user:pass@host/file.zip §7atau §bsftp://user@host/file.zip");
         sender.sendMessage("§e/" + label + " list §7- lihat file hasil download");
         sender.sendMessage("§e/" + label + " active §7- lihat download yang berjalan");
         sender.sendMessage("§e/" + label + " cancel <id|all> §7- batalkan download");

@@ -19,3 +19,20 @@ block-private-addresses: true
 
 # Kirim progress tiap N persen (minimal 5)
 progress-step-percent: 10
+
+# --- FTP / FTPS ---
+# Kredensial diambil dari URL, contoh:
+#   ftp://user:pass@host:21/path/file.zip
+#   ftps://user:pass@host:21/path/file.zip
+# Tanpa user di URL dipakai login anonymous.
+
+# --- SFTP ---
+# Contoh: sftp://user:pass@host:22/path/file.zip
+# Kalau password tidak ada di URL, dipakai private key di bawah ini.
+# Path relatif terhadap plugins/FileDownloader/ atau absolut.
+sftp-private-key: ""
+sftp-passphrase: ""
+# Verifikasi host key server. false = terima semua (mudah, kurang aman).
+# true = cek known_hosts di bawah (disarankan untuk server produksi).
+sftp-strict-host-key-checking: false
+sftp-known-hosts: ""
